@@ -111,7 +111,7 @@ public class ScreenGame implements Screen {
                 enemyCars.remove(i);
                 i--;
             }
-        }
+        }//hello
 
 
 
