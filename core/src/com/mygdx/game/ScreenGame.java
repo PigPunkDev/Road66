@@ -106,7 +106,7 @@ public class ScreenGame implements Screen {
             if(mainCar.overlap(enemyCars.get(i))) {
                 if(mainCar.isAlive){
                     destroyMainCar();
-                    if(crd.sound)sndExplosion.play();//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    if(crd.sound)sndExplosion.play();
                 }
                 enemyCars.remove(i);
                 i--;
