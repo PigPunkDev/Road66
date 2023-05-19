@@ -8,6 +8,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.Align;
@@ -25,11 +26,12 @@ public class ScreenGame implements Screen {
     Texture imgEnemyCarPoliceCar;
 
     Sound sndExplosion;
+    Music sndMusic;
 
   long timeStart,timeCurrent;
     boolean isGameOver;
     CarButton btnExit;
-
+    float enemyCarSpeed;
     ArrayList<EnemyCar> enemyCars = new ArrayList<>();
     MainCar mainCar;
 
@@ -52,7 +54,10 @@ public class ScreenGame implements Screen {
 
         btnExit = new CarButton(crd.fontMedium, "Exit", SCR_WIDTH-100, 50);
         sndExplosion = Gdx.audio.newSound(Gdx.files.internal("CrushSound.mp3"));
-
+        sndMusic = Gdx.audio.newMusic(Gdx.files.internal("AC_DC_HIGHWAY_TO_HELL.mp3"));
+        sndMusic.setLooping(true);
+        sndMusic.setVolume(0.5f);
+        if(crd.music) sndMusic.play();
 
         mainCar = new MainCar(200,200,70,150);
 
@@ -111,7 +116,7 @@ public class ScreenGame implements Screen {
                 enemyCars.remove(i);
                 i--;
             }
-        }//hello
+        }
 
 
 

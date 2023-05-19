@@ -15,6 +15,7 @@ import com.badlogic.gdx.graphics.Texture;
 
 public class ScreenSettings implements Screen {
     CarRoad crd;
+
     InputKeyboard keyboard;
 
     Texture imgBackGround;
@@ -26,10 +27,12 @@ public class ScreenSettings implements Screen {
     CarButton btnClearRecords;
     CarButton btnBack;
 
+
     boolean isEnterName;
 
     public ScreenSettings(CarRoad carRoad) {
         crd = carRoad;
+
         keyboard = new InputKeyboard(SCR_WIDTH, SCR_HEIGHT/2, 8);
 
         imgBackGround = new Texture("RoadForSettings.png");
@@ -67,6 +70,27 @@ public class ScreenSettings implements Screen {
                 }
                 if (btnMode.hit(crd.touch.x, crd.touch.y)) {
                     changeMode();
+                    if(btnMode.hit(crd.touch.x, crd.touch.y)){
+                        if(crd.modeOfGame == MODE_EASY){
+                            crd.modeOfGame = MODE_NORMAL;
+                            btnMode.text = "Mode: Normal";
+                            crd.screenGame.timeEnemyInterval=1500;
+                            EnemyCar.speed=EnemyCar.SPEED_NORMAL;
+                       } else if(crd.modeOfGame == MODE_NORMAL){
+                            crd.modeOfGame = MODE_HARD;
+                            btnMode.text = "Mode: Hard";
+                            crd.screenGame.timeEnemyInterval=750;
+                            EnemyCar.speed=EnemyCar.SPEED_HIGH;
+
+                        } else if(crd.modeOfGame == MODE_HARD){
+                            crd.modeOfGame = MODE_EASY;
+                            btnMode.text = "Mode: Easy";
+                            crd.screenGame.timeEnemyInterval = 3000;
+                            EnemyCar.speed=EnemyCar.SPEED_LOW;
+
+
+                        }
+                    }
                 }
                 if (btnSound.hit(crd.touch.x, crd.touch.y)) {
                     crd.sound = !crd.sound;

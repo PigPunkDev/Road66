@@ -25,6 +25,7 @@ public class CarRoad extends Game {
 	ScreenSettings screenSettings;
 	ScreenAbout screenAbout;
 	String playerName="Noname";
+	float enemyCarSpeed;
 
 
 	// настройки игры
