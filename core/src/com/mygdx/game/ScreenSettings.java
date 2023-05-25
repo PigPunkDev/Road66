@@ -99,11 +99,11 @@ public class ScreenSettings implements Screen {
                 if (btnMusic.hit(crd.touch.x, crd.touch.y)) {
                     crd.music = !crd.music;
                     updateButtons();
-                    /*if (s.music) {
-                        s.screenGame.sndMusic.play();
+                    if (crd.music) {
+                        crd.screenGame.sndMusic.play();
                     } else {
-                        s.screenGame.sndMusic.stop();
-                    }*/
+                        crd.screenGame.sndMusic.stop();
+                    }
                 }
                 if (btnClearRecords.hit(crd.touch.x, crd.touch.y)) {
                     btnClearRecords.setText("Records Pured");

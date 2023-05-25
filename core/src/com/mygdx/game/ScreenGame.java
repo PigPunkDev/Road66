@@ -43,8 +43,6 @@ public class ScreenGame implements Screen {
     public ScreenGame(CarRoad carRoad) {
         crd = carRoad;
 
-
-
         isAccelerometerPresent = Gdx.input.isPeripheralAvailable(Input.Peripheral.Accelerometer);
 
         imgRoad = new Texture("Highway.png");
@@ -118,15 +116,9 @@ public class ScreenGame implements Screen {
             }
         }
 
-
-
-
-
-
         if(mainCar.isAlive){
             mainCar.move();
         }
-
 
         crd.camera.update();
         crd.batch.setProjectionMatrix(crd.camera.combined);

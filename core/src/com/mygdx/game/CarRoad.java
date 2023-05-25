@@ -46,8 +46,8 @@ public class CarRoad extends Game {
 		createFont();
 
 		screenIntro = new ScreenIntro(this);
-		screenGame = new ScreenGame(this);
 		screenSettings = new ScreenSettings(this);
+		screenGame = new ScreenGame(this);
 		screenAbout= new ScreenAbout(this);
 
 
