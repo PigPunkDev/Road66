@@ -18,8 +18,10 @@ public class ScreenAbout implements Screen {
                             "\n"+
                     "In this game you need to \n" +
                     "avoid crushing into other cars\n"+
-                    "and get as far as possible.";
-
+                    "and get as far as possible.\n"+
+                    "\n"+
+                    "Music:AC/DC\n"+
+                            "<<Highway to hell>>";
 
     public ScreenAbout(CarRoad carRoad) {
         crd = carRoad;

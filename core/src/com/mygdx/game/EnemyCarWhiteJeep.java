@@ -6,11 +6,11 @@ import static com.mygdx.game.CarRoad.SCR_WIDTH;
 
 import com.badlogic.gdx.math.MathUtils;
 
-public class EnemyCar extends RoadObject{
+public class EnemyCarWhiteJeep extends RoadObject{
     public static final float SPEED_LOW=-5, SPEED_NORMAL=-8, SPEED_HIGH=-12;
     static float speed=SPEED_NORMAL;
 
-    public EnemyCar( float width, float height) {
+    public EnemyCarWhiteJeep(float width, float height) {
         super(0, 0, width, height);
 
         x = MathUtils.random(width/2+100, SCR_WIDTH-width/2-100);
