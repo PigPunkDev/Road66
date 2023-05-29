@@ -25,6 +25,7 @@ public class ScreenGame implements Screen {
     Texture imgEnemyCarWhiteJeep;
     Texture imgEnemyCarPoliceCar;
 
+
     Sound sndExplosion;
     Music sndMusic;
 
@@ -259,8 +260,8 @@ public class ScreenGame implements Screen {
     }
     void spawnEnemyCar() {
         if(TimeUtils.millis() > timeEnemySpawn+timeEnemyInterval) {
-            enemyCarWhiteJeeps.add(new EnemyCarWhiteJeep(75, 160));
-            enemyCarPoliceCars.add(new EnemyCarPoliceCar(70,175));
+            enemyCarWhiteJeeps.add(new EnemyCarWhiteJeep(crd,75, 160));
+            enemyCarPoliceCars.add(new EnemyCarPoliceCar(crd,70,175));
             timeEnemySpawn = TimeUtils.millis();
         }
     }
