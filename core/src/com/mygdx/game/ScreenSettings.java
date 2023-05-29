@@ -70,24 +70,6 @@ public class ScreenSettings implements Screen {
                 }
                 if (btnMode.hit(crd.touch.x, crd.touch.y)) {
                     changeMode();
-                    if(btnMode.hit(crd.touch.x, crd.touch.y)){
-                        if(crd.modeOfGame == MODE_EASY){
-                            crd.modeOfGame = MODE_NORMAL;
-                            btnMode.text = "Mode: Normal";
-                            crd.screenGame.timeEnemyInterval=1500;
-                            EnemyCar.speed = EnemyCar.SPEED_NORMAL;
-                       } else if(crd.modeOfGame == MODE_NORMAL){
-                            crd.modeOfGame = MODE_HARD;
-                            btnMode.text = "Mode: Hard";
-                            crd.screenGame.timeEnemyInterval=750;
-                            EnemyCar.speed= EnemyCar.SPEED_HIGH;
-                        } else if(crd.modeOfGame == MODE_HARD){
-                            crd.modeOfGame = MODE_EASY;
-                            btnMode.text = "Mode: Easy";
-                            crd.screenGame.timeEnemyInterval = 3000;
-                            EnemyCar.speed= EnemyCar.SPEED_LOW;
-                        }
-                    }
                 }
                 if (btnSound.hit(crd.touch.x, crd.touch.y)) {
                     crd.sound = !crd.sound;
@@ -160,10 +142,19 @@ public class ScreenSettings implements Screen {
     void changeMode(){
         if(crd.modeOfGame == MODE_EASY){
             crd.modeOfGame = MODE_NORMAL;
+            btnMode.text = "Mode: Normal";
+            crd.screenGame.timeEnemyInterval=1500;
+            EnemyCar.speed = EnemyCar.SPEED_NORMAL;
         } else if(crd.modeOfGame == MODE_NORMAL){
             crd.modeOfGame = MODE_HARD;
+            btnMode.text = "Mode: Hard";
+            crd.screenGame.timeEnemyInterval=750;
+            EnemyCar.speed= EnemyCar.SPEED_HIGH;
         } else if(crd.modeOfGame == MODE_HARD){
             crd.modeOfGame = MODE_EASY;
+            btnMode.text = "Mode: Easy";
+            crd.screenGame.timeEnemyInterval = 3000;
+            EnemyCar.speed= EnemyCar.SPEED_LOW;
         }
         updateButtons();
     }
