@@ -75,23 +75,17 @@ public class ScreenSettings implements Screen {
                             crd.modeOfGame = MODE_NORMAL;
                             btnMode.text = "Mode: Normal";
                             crd.screenGame.timeEnemyInterval=1500;
-                            EnemyCarWhiteJeep.speed= EnemyCarWhiteJeep.SPEED_NORMAL;
-                            EnemyCarPoliceCar.speed= EnemyCarPoliceCar.SPEED_NORMAL;
+                            EnemyCar.speed = EnemyCar.SPEED_NORMAL;
                        } else if(crd.modeOfGame == MODE_NORMAL){
                             crd.modeOfGame = MODE_HARD;
                             btnMode.text = "Mode: Hard";
                             crd.screenGame.timeEnemyInterval=750;
-                            EnemyCarWhiteJeep.speed= EnemyCarWhiteJeep.SPEED_HIGH;
-                            EnemyCarPoliceCar.speed= EnemyCarPoliceCar.SPEED_HIGH;
-
+                            EnemyCar.speed= EnemyCar.SPEED_HIGH;
                         } else if(crd.modeOfGame == MODE_HARD){
                             crd.modeOfGame = MODE_EASY;
                             btnMode.text = "Mode: Easy";
                             crd.screenGame.timeEnemyInterval = 3000;
-                            EnemyCarWhiteJeep.speed= EnemyCarWhiteJeep.SPEED_LOW;
-                            EnemyCarPoliceCar.speed= EnemyCarPoliceCar.SPEED_LOW;
-
-
+                            EnemyCar.speed= EnemyCar.SPEED_LOW;
                         }
                     }
                 }

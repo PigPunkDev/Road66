@@ -40,11 +40,8 @@ public class MainCar extends RoadObject {
 
     }
 
-    boolean overlapWhiteJeep(EnemyCarWhiteJeep e) {
+    boolean overlapEnemyCar(EnemyCar e) {
         return Math.abs(x - e.x) < width / 2 + e.width / 2 & Math.abs(y - e.y) < height / 2 + e.height / 2;
     }
 
-    boolean overlapPoliceCar(EnemyCarPoliceCar ep) {
-        return Math.abs(x - ep.x) < width / 2 + ep.width / 2 & Math.abs(y - ep.y) < height / 2 + ep.height / 2;
-    }
 }

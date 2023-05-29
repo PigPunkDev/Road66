@@ -11,6 +11,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.TimeUtils;
 
@@ -22,19 +23,16 @@ public class ScreenGame implements Screen {
 
     Texture imgRoad;
     Texture imgMainCar;
-    Texture imgEnemyCarWhiteJeep;
-    Texture imgEnemyCarPoliceCar;
-
+    Texture[] imgEnemyCar = new Texture[3];
 
     Sound sndExplosion;
     Music sndMusic;
 
-  long timeStart,timeCurrent;
+    long timeStart,timeCurrent;
     boolean isGameOver;
     CarButton btnExit;
     float enemyCarSpeed;
-    ArrayList<EnemyCarWhiteJeep> enemyCarWhiteJeeps = new ArrayList<>();
-    ArrayList<EnemyCarPoliceCar> enemyCarPoliceCars = new ArrayList<>();
+    ArrayList<EnemyCar> enemyCars = new ArrayList<>();
     MainCar mainCar;
 
     long timeEnemySpawn, timeEnemyInterval = 3000;
@@ -49,8 +47,9 @@ public class ScreenGame implements Screen {
 
         imgRoad = new Texture("Highway.png");
         imgMainCar = new Texture("Cars/PurpleCar.png");
-        imgEnemyCarWhiteJeep = new Texture("Cars/WhiteJeep.png");
-        imgEnemyCarPoliceCar = new Texture("Cars/PoliceCar.png");
+        imgEnemyCar[0] = new Texture("Cars/PoliceCar.png");
+        imgEnemyCar[1] = new Texture("Cars/WhiteJeep.png");
+        imgEnemyCar[2] = new Texture("Cars/Light-BlueTrack.png");
 
         btnExit = new CarButton(crd.fontMedium, "Exit", SCR_WIDTH-100, 50);
         sndExplosion = Gdx.audio.newSound(Gdx.files.internal("CrushSound.mp3"));
@@ -68,9 +67,6 @@ public class ScreenGame implements Screen {
 
         roads[0] = new Road(0);
         roads[1] = new Road(SCR_HEIGHT);
-
-
-
     }
 
     @Override
@@ -107,26 +103,16 @@ public class ScreenGame implements Screen {
             spawnEnemyCar();
             timeCurrent=TimeUtils.millis()-timeStart;
         }
-        for (int i = 0; i < enemyCarWhiteJeeps.size(); i++) {
-            enemyCarWhiteJeeps.get(i).move();
-            if(mainCar.overlapWhiteJeep(enemyCarWhiteJeeps.get(i))) {
+
+        for (int i = 0; i < enemyCars.size(); i++) {
+            enemyCars.get(i).move();
+            if(mainCar.overlapEnemyCar(enemyCars.get(i))) {
                 if(mainCar.isAlive){
                     destroyMainCar();
                     if(crd.sound)sndExplosion.play();
                 }
-                enemyCarWhiteJeeps.remove(i);
+                enemyCars.remove(i);
                 i--;
-            }
-        }
-        for (int j = 0; j < enemyCarPoliceCars.size(); j++) {
-            enemyCarPoliceCars.get(j).move();
-            if(mainCar.overlapPoliceCar(enemyCarPoliceCars.get(j))) {
-                if(mainCar.isAlive){
-                    destroyMainCar();
-                    if(crd.sound)sndExplosion.play();
-                }
-                enemyCarPoliceCars.remove(j);
-                j--;
             }
         }
 
@@ -141,11 +127,8 @@ public class ScreenGame implements Screen {
             crd.batch.draw(imgRoad, roads[i].x, roads[i].y, roads[i].width, roads[i].height);
         }
 
-        for (int i = 0; i < enemyCarWhiteJeeps.size(); i++) {
-            crd.batch.draw(imgEnemyCarWhiteJeep, enemyCarWhiteJeeps.get(i).getX(), enemyCarWhiteJeeps.get(i).getY(), enemyCarWhiteJeeps.get(i).width, enemyCarWhiteJeeps.get(i).height);
-        }
-        for (int i = 0; i < enemyCarPoliceCars.size(); i++) {
-            crd.batch.draw(imgEnemyCarPoliceCar, enemyCarPoliceCars.get(i).getX(), enemyCarPoliceCars.get(i).getY(), enemyCarPoliceCars.get(i).width, enemyCarPoliceCars.get(i).height);
+        for (int i = 0; i < enemyCars.size(); i++) {
+            crd.batch.draw(imgEnemyCar[enemyCars.get(i).type], enemyCars.get(i).getX(), enemyCars.get(i).getY(), enemyCars.get(i).width, enemyCars.get(i).height);
         }
 
 
@@ -164,12 +147,6 @@ public class ScreenGame implements Screen {
         }
         crd.batch.end();
     }
-
-
-
-
-
-
 
 
     @Override
@@ -213,10 +190,7 @@ public class ScreenGame implements Screen {
         isGameOver = false;
         mainCar.isAlive=true;
         timeStart=TimeUtils.millis();
-        enemyCarWhiteJeeps.clear();
-        enemyCarPoliceCars.clear();
-
-
+        enemyCars.clear();
     }
 
     void saveTableOfRecords(){
@@ -260,8 +234,7 @@ public class ScreenGame implements Screen {
     }
     void spawnEnemyCar() {
         if(TimeUtils.millis() > timeEnemySpawn+timeEnemyInterval) {
-            enemyCarWhiteJeeps.add(new EnemyCarWhiteJeep(crd,75, 160));
-            enemyCarPoliceCars.add(new EnemyCarPoliceCar(crd,70,175));
+            enemyCars.add(new EnemyCar(crd, MathUtils.random(0, imgEnemyCar.length-1)));
             timeEnemySpawn = TimeUtils.millis();
         }
     }

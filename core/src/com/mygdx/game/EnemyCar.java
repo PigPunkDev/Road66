@@ -9,20 +9,25 @@ import static com.mygdx.game.CarRoad.SCR_WIDTH;
 
 import com.badlogic.gdx.math.MathUtils;
 
-public class EnemyCarWhiteJeep extends RoadObject{
+public class EnemyCar extends RoadObject{
     public static final int SPEED_LOW=5, SPEED_NORMAL=-8, SPEED_HIGH=-12;
     public static final int TYPE_POLICE=0, TYPE_WHITEJEEP=1, TYPE_TRUCK=2;
+    float[][] sizeCar = {{70, 175}, {75, 160}, {85, 230}};
+
     static float speed;
     CarRoad crd;
     int type;
-    public EnemyCarWhiteJeep(int type, CarRoad crd, float width, float height) {
-        super(0, 0, width, height);
+
+    public EnemyCar(CarRoad crd, int type) {
+        super(0, 0, 0, 0);
+        width = sizeCar[type][0];
+        height = sizeCar[type][1];
         this.crd=crd;
         this.type=type;
         x = MathUtils.random(width/2+100, SCR_WIDTH-width/2-100);
         y = MathUtils.random(SCR_HEIGHT+height/2, SCR_HEIGHT*2);
         setSpeed();
-        vy= speed;
+        vy = speed;
     }
 
     boolean outOfScreen() {
