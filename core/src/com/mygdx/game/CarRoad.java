@@ -67,7 +67,7 @@ public class CarRoad extends Game {
 		parameter.characters = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяabcdefghijklmnopqrstuvwxyzАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789][_!$%#@|\\/?-+=()*&.;:,{}\"´`'<>";
 		parameter.size = 30;
 		parameter.color = Color.valueOf("FFAC23");
-		parameter.borderWidth = 1;
+		parameter.borderWidth = 3;
 		parameter.borderColor = Color.valueOf("#946904");
 		fontSmall = generator.generateFont(parameter);
 		parameter.size = 40;
