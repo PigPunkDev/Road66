@@ -66,9 +66,9 @@ public class CarRoad extends Game {
 		FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
 		parameter.characters = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяabcdefghijklmnopqrstuvwxyzАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789][_!$%#@|\\/?-+=()*&.;:,{}\"´`'<>";
 		parameter.size = 30;
-		parameter.color = Color.valueOf("FFD700");
-		parameter.borderWidth = 2;
-		parameter.borderColor = Color.valueOf("A00000");
+		parameter.color = Color.valueOf("FFAC23");
+		parameter.borderWidth = 1;
+		parameter.borderColor = Color.valueOf("#946904");
 		fontSmall = generator.generateFont(parameter);
 		parameter.size = 40;
 		fontMedium = generator.generateFont(parameter);

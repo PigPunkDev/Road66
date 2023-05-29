@@ -83,16 +83,17 @@ public class ScreenGame implements Screen {
         if(Gdx.input.isTouched()) {
             crd.touch.set(Gdx.input.getX(), Gdx.input.getY(), 0);
             crd.camera.unproject(crd.touch);
-            mainCar.vx = (crd.touch.x - mainCar.x)/50;
-            mainCar.vy = (crd.touch.y - mainCar.y)/50;
+            mainCar.vx = (crd.touch.x - mainCar.x)/40;
+            mainCar.vy = (crd.touch.y - mainCar.y)/40;
 
 
             if(btnExit.hit(crd.touch.x, crd.touch.y)) {
                 crd.setScreen(crd.screenIntro);
             }
-        } else if(isAccelerometerPresent) {
-            mainCar.vx = -Gdx.input.getAccelerometerX()*2;
-        }
+        } //else if(isAccelerometerPresent) {
+          //  mainCar.vx = -Gdx.input.getAccelerometerX()*2;
+          //  mainCar.vy = -Gdx.input.getAccelerometerY()*2;
+       // }
 
 
         for (int i = 0; i < roads.length; i++) {
