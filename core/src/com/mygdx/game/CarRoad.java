@@ -27,7 +27,6 @@ public class CarRoad extends Game {
 	String playerName="Noname";
 	float enemyCarSpeed;
 
-
 	// настройки игры
 	boolean sound = true;
 	boolean music = true;
