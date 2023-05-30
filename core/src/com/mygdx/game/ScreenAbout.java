@@ -25,7 +25,7 @@ public class ScreenAbout implements Screen {
 
     public ScreenAbout(CarRoad carRoad) {
         crd = carRoad;
-        imgBackGround = new Texture("Road66About.jfif");
+        imgBackGround = new Texture("Arizona2.png");
 
         btnBack = new CarButton(crd.fontLarge, "BACK", 200, 150);
     }

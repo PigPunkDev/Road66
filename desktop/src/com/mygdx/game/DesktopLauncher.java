@@ -13,7 +13,7 @@ public class DesktopLauncher {
 		Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
 		config.setForegroundFPS(60);
 		config.setTitle("CarRoad");
-		config.setWindowedMode((int)SCR_WIDTH,(int)SCR_HEIGHT);
+		config.setWindowedMode(788,1400);
 		new Lwjgl3Application(new CarRoad(), config);
 	}
 }

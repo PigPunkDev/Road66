@@ -16,7 +16,7 @@ public class ScreenIntro implements Screen {
 
     public ScreenIntro(CarRoad carRoad){
         crd=carRoad;
-        imgBackGround = new Texture("AmericanRoute.jfif");
+        imgBackGround = new Texture("ArizonaDesert.png");
 
         btnPlay = new CarButton(crd.fontLarge, "PLAY", 50, 450);
         btnAbout = new CarButton(crd.fontLarge, "ABOUT", 50, 250);

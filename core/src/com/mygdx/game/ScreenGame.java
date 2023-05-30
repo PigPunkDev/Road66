@@ -31,7 +31,6 @@ public class ScreenGame implements Screen {
     long timeStart,timeCurrent;
     boolean isGameOver;
     CarButton btnExit;
-    float enemyCarSpeed;
     ArrayList<EnemyCar> enemyCars = new ArrayList<>();
     MainCar mainCar;
 
