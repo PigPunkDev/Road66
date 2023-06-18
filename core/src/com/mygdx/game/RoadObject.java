@@ -11,7 +11,7 @@ public class RoadObject {
         this.width = width;
         this.height = height;
     }
-
+//алалабабададэ́
     void move() {
         x += vx;
         y += vy;
